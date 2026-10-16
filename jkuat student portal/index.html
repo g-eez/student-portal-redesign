@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JKUAT Student Portal - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-page="index">
+    <div class="landing-container">
+        <div class="bg-decoration">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="landing-left">
+            <div class="brand-section">
+                <div class="logo-container">
+                    <svg class="university-logo" viewBox="0 0 48 48" fill="none">
+                        <rect x="4" y="4" width="40" height="40" rx="8" fill="#1B5E20"/>
+                        <path d="M15 18L24 12L33 18V32L24 38L15 32V18Z" stroke="white" stroke-width="2" fill="none"/>
+                        <circle cx="24" cy="28" r="3" fill="white"/>
+                    </svg>
+                    <div class="brand-text">
+                        <h1>JKUAT Student Portal</h1>
+                        <p>University Portal</p>
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <h2 class="hero-title">Your Academic Journey, Simplified</h2>
+                    <p class="hero-subtitle">Access your timetable, register units, check results, and manage your academic life all in one place.</p>
+                    <div class="features-grid">
+                        <div class="feature-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span>Timetable</span></div>
+                        <div class="feature-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg><span>Results</span></div>
+                        <div class="feature-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg><span>Fees</span></div>
+                        <div class="feature-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span>Library</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="landing-footer"><p>&copy; 2026 JKUAT. All rights reserved.</p><div class="footer-links"><a href="#">Help</a><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+        </div>
+        <div class="landing-right">
+            <button class="theme-toggle-landing" id="themeToggle" title="Toggle theme">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" id="loginTab">Sign In</button>
+                    <button class="auth-tab" id="registerTab">Register</button>
+                </div>
+                <div class="auth-panel active" id="loginPanel">
+                    <div class="panel-header"><h2>Welcome Back</h2><p>Sign in to access your portal</p></div>
+                    <form class="auth-form" id="loginForm">
+                        <div class="form-group">
+                            <label class="form-label">Admission Number or Email</label>
+                            <div class="input-wrapper"><svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><input type="text" class="form-input" name="username" placeholder="SCT221-001/2024" required></div>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <div class="input-wrapper"><svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><input type="password" class="form-input password-input" name="password" placeholder="Enter your password" required><button type="button" class="password-toggle" aria-label="Show password"><svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg><svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg></button></div>
+                            <span class="error-message"></span>
+                        </div>
+                        <div class="form-options"><label class="checkbox-label"><input type="checkbox" name="remember"><span class="checkbox-custom"></span><span>Remember me</span></label><a href="#" class="link-text" id="forgotPassword">Forgot password?</a></div>
+                        <button type="submit" class="btn-primary"><span class="btn-text">Sign In</span><span class="btn-loader" style="display: none;"><svg class="spinner" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle></svg>Signing in...</span></button>
+                    </form>
+                </div>
+                <div class="auth-panel" id="registerPanel">
+                    <div class="panel-header"><h2>Create Account</h2><p>Register to access your portal</p></div>
+                    <form class="auth-form" id="registerForm">
+                        <div class="form-group"><label class="form-label">Full Name</label><div class="input-wrapper"><svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><input type="text" class="form-input" name="fullName" placeholder="John Doe Mwangi" required></div><span class="error-message"></span></div>
+                        <div class="form-group"><label class="form-label">Admission Number</label><div class="input-wrapper"><svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg><input type="text" class="form-input" name="admissionNumber" placeholder="SCT221-001/2024" required></div><span class="error-message"></span></div>
+                        <div class="form-row">
+                            <div class="form-group"><label class="form-label">Year of Study</label><select class="form-input" name="year" required><option value="">Select Year</option><option value="Year 1">Year 1</option><option value="Year 2">Year 2</option><option value="Year 3">Year 3</option><option value="Year 4">Year 4</option><option value="Year 5">Year 5</option></select><span class="error-message"></span></div>
+                            <div class="form-group"><label class="form-label">Semester</label><select class="form-input" name="semester" required><option value="">Select Semester</option><option value="Semester 1">Semester 1</option><option value="Semester 2">Semester 2</option></select><span class="error-message"></span></div>
+                        </div>
+                        <div class="form-group"><label class="form-label">Course/Program</label><select class="form-input" name="course" required><option value="">Select Course</option><option value="Bachelor of Science in Computer Science">BSc Computer Science</option><option value="Bachelor of Science in Information Technology">BSc Information Technology</option><option value="Bachelor of Science in Software Engineering">BSc Software Engineering</option><option value="Bachelor of Business Information Technology">Bachelor of Business IT</option><option value="Bachelor of Science in Data Science">BSc Data Science</option><option value="Bachelor of Science in Cybersecurity">BSc Cybersecurity</option><option value="Bachelor of Engineering in Electrical Engineering">BEng Electrical Engineering</option><option value="Bachelor of Engineering in Mechanical Engineering">BEng Mechanical Engineering</option><option value="Bachelor of Engineering in Civil Engineering">BEng Civil Engineering</option><option value="Bachelor of Commerce">Bachelor of Commerce</option></select><span class="error-message"></span></div>
+                        <div class="form-group"><label class="form-label">Student Email</label><div class="input-wrapper"><svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><input type="email" class="form-input" name="email" placeholder="john.doe@students.jkuat.ac.ke" required></div><span class="error-message"></span></div>
+                        <div class="form-group"><label class="form-label">Password</label><div class="input-wrapper"><svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><input type="password" class="form-input password-input" name="newPassword" id="newPassword" placeholder="Create a strong password" required><button type="button" class="password-toggle" aria-label="Show password"><svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg><svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg></button></div><span class="error-message"></span></div>
+                        <div class="password-strength" id="passwordStrength" data-strength=""><div class="strength-bars"><div class="strength-bar"></div><div class="strength-bar"></div><div class="strength-bar"></div><div class="strength-bar"></div></div><p class="strength-text">Password strength: <span class="strength-value">-</span></p></div>
+                        <div class="form-group"><label class="form-label">Confirm Password</label><div class="input-wrapper"><svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><input type="password" class="form-input password-input" name="confirmPassword" placeholder="Confirm your password" required><button type="button" class="password-toggle" aria-label="Show password"><svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg><svg class="eye-off-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg></button></div><span class="error-message"></span></div>
+                        <label class="checkbox-label terms-checkbox"><input type="checkbox" name="acceptTerms" required><span class="checkbox-custom"></span><span>I accept the <a href="#" class="link-text">Terms of Service</a></span></label>
+                        <button type="submit" class="btn-primary"><span class="btn-text">Create Account</span><span class="btn-loader" style="display: none;"><svg class="spinner" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle></svg>Creating account...</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="toast" id="toast"><svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg><span class="toast-message">Toast message</span><button class="toast-close">&times;</button></div>
+    <script src="script.js"></script>
+</body>
+</html>

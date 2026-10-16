@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeHive - Human-Centered Digital Systems</title>
+  <meta name="description" content="CodeHive is a forward-thinking software development company that transforms complex challenges into intuitive digital experiences through HCI-driven engineering.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-content">
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+        </svg>
+        <span class="logo-text">Code<span class="text-primary">Hive</span></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#team" class="nav-link">Team</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#contact" class="btn btn-hero btn-sm">Get in Touch</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg class="close-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu hidden" id="mobileMenu">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#team" class="mobile-link">Team</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="#contact" class="btn btn-hero w-full">Get in Touch</a>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="hero gradient-slate">
+    <div class="hexagon-pattern"></div>
+    <div class="floating-hexagons" id="floatingHexagons"></div>
+    <div class="container hero-content">
+      <div class="hero-badge fade-in">
+        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+        </svg>
+        <span>Human-Centered Digital Systems</span>
+      </div>
+      <h1 class="hero-title fade-in" style="animation-delay: 0.1s">
+        Building Systems That <span class="text-gradient-honey">Work For Users</span>
+      </h1>
+      <p class="hero-description fade-in" style="animation-delay: 0.2s">
+        CodeHive is a forward-thinking software development company that transforms 
+        complex challenges into intuitive digital experiences through HCI-driven engineering.
+      </p>
+      <div class="hero-buttons fade-in" style="animation-delay: 0.3s">
+        <a href="#projects" class="btn btn-hero btn-xl">View Our Work</a>
+        <a href="#about" class="btn btn-hero-outline btn-xl">Learn More</a>
+      </div>
+    </div>
+    <div class="scroll-indicator fade-in" style="animation-delay: 1s">
+      <a href="#about" class="scroll-link">
+        <span>Scroll to explore</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <polyline points="19,12 12,19 5,12"></polyline>
+        </svg>
+      </a>
+    </div>
+  </section>
+  <!-- About Section -->
+  <section id="about" class="section bg-background">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">About CodeHive</span>
+        <h2 class="section-title">Engineering With Humans in Mind</h2>
+        <p class="section-description">
+          We're a team of engineers, designers, and usability experts who believe great 
+          software should feel invisible. Our expertise spans web systems, enterprise 
+          platforms, and academic information systems—all built on a strong foundation 
+          of Human-Computer Interaction principles.
+        </p>
+      </div>
+      <div class="mission-card animate-on-scroll">
+        <h3>Our Mission</h3>
+        <p>
+          To solve real-world usability problems through clean design, efficient 
+          interaction flows, and user-driven system architecture. We build systems 
+          that work <span class="text-primary font-semibold">for</span> users, 
+          not against them.
+        </p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card animate-on-scroll">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h4>User-First Design</h4>
+          <p>Every system begins with understanding the humans who will use it.</p>
+        </div>
+        <div class="value-card animate-on-scroll" style="animation-delay: 0.1s">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="9" y1="18" x2="15" y2="18"></line>
+              <line x1="10" y1="22" x2="14" y2="22"></line>
+              <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path>
+            </svg>
+          </div>
+          <h4>HCI Excellence</h4>
+          <p>Human-Computer Interaction isn't an afterthought—it's our foundation.</p>
+        </div>
+        <div class="value-card animate-on-scroll" style="animation-delay: 0.2s">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </div>
+          <h4>Purposeful Solutions</h4>
+          <p>We solve real usability problems, not imaginary technical challenges.</p>
+        </div>
+        <div class="value-card animate-on-scroll" style="animation-delay: 0.3s">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <h4>Clean Architecture</h4>
+          <p>Efficient interaction flows through well-designed system architecture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Team Section -->
+  <section id="team" class="section bg-muted">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Our Team</span>
+        <h2 class="section-title">Multidisciplinary Thinkers</h2>
+        <p class="section-description">
+          Our team combines expertise in software engineering, human-computer interaction, 
+          and design thinking. Together, we approach every project as system designers, 
+          usability advocates, and implementers.
+        </p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card animate-on-scroll">
+          <div class="team-avatar">
+            <span>EK</span>
+            <div class="hci-badge">HCI</div>
+          </div>
+          <h3>Eddie Kariuki</h3>
+          <p class="team-role">System Architect & UX Lead</p>
+          <p class="team-description">Bridges technical architecture with user experience design, ensuring systems are both robust and intuitive.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="#" class="social-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+            <a href="#" class="social-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
+        </div>
+        <div class="team-card animate-on-scroll" style="animation-delay: 0.1s">
+          <div class="team-avatar">
+            <span>WC</span>
+            <div class="hci-badge">HCI</div>
+          </div>
+          <h3>Warren Chris</h3>
+          <p class="team-role">Full-Stack Developer</p>
+          <p class="team-description">Specializes in building scalable web platforms with a keen eye for interaction design and accessibility.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+            <a href="#" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+            <a href="#" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
+          </div>
+        </div>
+        <div class="team-card animate-on-scroll" style="animation-delay: 0.2s">
+          <div class="team-avatar">
+            <span>LW</span>
+            <div class="hci-badge">HCI</div>
+          </div>
+          <h3>Lynette Wambui</h3>
+          <p class="team-role">HCI Specialist</p>
+          <p class="team-description">Leads usability research and applies cognitive psychology principles to create human-centered interfaces.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+            <a href="#" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+            <a href="#" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
+          </div>
+        </div>
+        <div class="team-card animate-on-scroll" style="animation-delay: 0.3s">
+          <div class="team-avatar">
+            <span>GK</span>
+            <div class="hci-badge">HCI</div>
+          </div>
+          <h3>George Kariuki</h3>
+          <p class="team-role">Backend Engineer</p>
+          <p class="team-description">Designs efficient data architectures that support seamless user workflows and system responsiveness.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+            <a href="#" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+            <a href="#" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
+          </div>
+        </div>
+        <div class="team-card animate-on-scroll" style="animation-delay: 0.4s">
+          <div class="team-avatar">
+            <span>YN</span>
+            <div class="hci-badge">HCI</div>
+          </div>
+          <h3>Yvonne Nzioka</h3>
+          <p class="team-role">Frontend Developer & Designer</p>
+          <p class="team-description">Crafts pixel-perfect interfaces that translate HCI principles into beautiful, functional user experiences.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+            <a href="#" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+            <a href="#" class="social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Projects Section -->
+  <section id="projects" class="section bg-background">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">Our Projects</span>
+        <h2 class="section-title">HCI Theory in Practice</h2>
+        <p class="section-description">
+          We transform complex systems into intuitive experiences. Each project 
+          demonstrates our commitment to user-centered design and interaction excellence.
+        </p>
+      </div>
+      <!-- Featured Project -->
+      <div class="featured-project animate-on-scroll">
+        <div class="featured-header">
+          <div class="featured-badges">
+            <span class="badge badge-primary">Featured Project</span>
+            <span class="badge badge-success">Live System</span>
+          </div>
+          <h3>JKUAT Student Portal System</h3>
+          <p>
+            A complete redesign of the JKUAT Student Portal aimed at improving student interaction, 
+            efficiency, accessibility, and overall user satisfaction. This project serves as our 
+            flagship demonstration of applied HCI principles in real-world systems.
+          </p>
+        </div>
+        <!-- Slides -->
+        <div class="slides-container">
+          <div class="slides-dots" id="slidesDots"></div>
+          <div class="slides-content" id="slidesContent"></div>
+          <button class="slide-nav slide-prev" id="slidePrev">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"></polyline></svg>
+          </button>
+          <button class="slide-nav slide-next" id="slideNext">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,6 15,12 9,18"></polyline></svg>
+          </button>
+          <div class="slide-counter" id="slideCounter">1 / 5</div>
+        </div>
+        <div class="featured-cta">
+          <div class="cta-text">
+            <p class="cta-label">Explore Two Versions</p>
+            <p class="cta-description">View the design prototype and the fully-functional portal system</p>
+          </div>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="prototype/index.html" target="_blank" class="btn btn-cta btn-xl">
+              View Prototype
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+            </a>
+            <a href="jkuat student portal/index.html" target="_blank" class="btn btn-cta btn-xl">
+              Access Live System
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Other Projects -->
+      <h3 class="more-projects-title animate-on-scroll">More Projects</h3>
+      <div class="projects-grid">
+        <div class="project-card animate-on-scroll">
+          <div class="project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+          </div>
+          <span class="project-category">Enterprise Platform</span>
+          <h4>Enterprise Resource Manager</h4>
+          <p>Streamlined resource allocation system for large organizations.</p>
+          <div class="project-footer">
+            <span class="project-status">In Development</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+          </div>
+        </div>
+        <div class="project-card animate-on-scroll" style="animation-delay: 0.1s">
+          <div class="project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          </div>
+          <span class="project-category">Education Technology</span>
+          <h4>Academic Records System</h4>
+          <p>Centralized platform for managing academic records and transcripts.</p>
+          <div class="project-footer">
+            <span class="project-status">Coming Soon</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+          </div>
+        </div>
+        <div class="project-card animate-on-scroll" style="animation-delay: 0.2s">
+          <div class="project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <span class="project-category">Security Infrastructure</span>
+          <h4>Secure Auth Gateway</h4>
+          <p>Multi-factor authentication system with SSO capabilities.</p>
+          <div class="project-footer">
+            <span class="project-status">Planned</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12,5 19,12 12,19"></polyline></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            </svg>
+            <span class="logo-text">Code<span class="text-primary">Hive</span></span>
+          </a>
+          <p>
+            Building human-centered digital systems that work for users, not against them. 
+            We transform complex challenges into intuitive experiences through HCI-driven engineering.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="footer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+            <a href="#" class="footer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+            <a href="#" class="footer-social-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <ul>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <a href="mailto:hello@codehive.dev">hello@codehive.dev</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>+254 700 000 000</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Nairobi, Kenya</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 CodeHive. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

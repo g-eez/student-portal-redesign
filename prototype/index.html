@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JKUAT Student Portal - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Left Panel -->
+        <div class="auth-left">
+            <div style="max-width: 450px;">
+                <h1 class="auth-title">🎓 JKUAT Portal</h1>
+                <p class="auth-subtitle">
+                    Manage your academic journey. Access your timetable, grades, fees, and more - all in one place.
+                </p>
+                <div style="margin-top: 3rem; display: flex; flex-direction: column; gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; color: var(--text-secondary);">
+                        <span style="font-size: 1.5rem;">📅</span>
+                        <span>View your class schedule</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; color: var(--text-secondary);">
+                        <span style="font-size: 1.5rem;">📊</span>
+                        <span>Check your academic results</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; color: var(--text-secondary);">
+                        <span style="font-size: 1.5rem;">💳</span>
+                        <span>Track your fees and payments</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; color: var(--text-secondary);">
+                        <span style="font-size: 1.5rem;">📚</span>
+                        <span>Access course materials</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="auth-right">
+            <div style="max-width: 400px; width: 100%;">
+                <!-- Tabs -->
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="register">Register</button>
+                </div>
+
+                <!-- Login Form -->
+                <form class="auth-form" id="loginForm" data-form="login" style="display: block;">
+                    <div class="form-group">
+                        <label for="login-admission">Admission or Email</label>
+                        <input 
+                            type="text" 
+                            id="login-admission" 
+                            name="admission"
+                            placeholder="SCT221-001/2024 or email@jkuat.ac.ke"
+                            autocomplete="off"
+                        >
+                        <div class="error-message" id="admission-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input 
+                            type="password" 
+                            id="login-password" 
+                            name="password"
+                            placeholder="Enter your password"
+                        >
+                        <div class="error-message" id="password-error"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-lg);">
+                        Sign In
+                    </button>
+
+                    <p style="margin-top: var(--spacing-lg); text-align: center; color: var(--text-secondary);">
+                        Don't have an account? <a href="#" class="switch-tab" data-tab="register" style="color: var(--primary); text-decoration: none;">Register</a>
+                    </p>
+                </form>
+
+                <!-- Register Form -->
+                <form class="auth-form" id="registerForm" data-form="register" style="display: none;">
+                    <div class="form-group">
+                        <label for="register-admission">Admission Number</label>
+                        <input 
+                            type="text" 
+                            id="register-admission" 
+                            name="admission"
+                            placeholder="SCT###-###/####"
+                            autocomplete="off"
+                        >
+                        <div class="error-message" id="register-admission-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-name">Full Name</label>
+                        <input 
+                            type="text" 
+                            id="register-name" 
+                            name="name"
+                            placeholder="Your Full Name"
+                            required
+                        >
+                        <div class="error-message" id="register-name-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-course">Course/Program</label>
+                        <select id="register-course" name="course" required>
+                            <option value="">Select your program</option>
+                            <option value="BSc Computer Science">BSc Computer Science</option>
+                            <option value="BSc Information Technology">BSc Information Technology</option>
+                            <option value="BSc Software Engineering">BSc Software Engineering</option>
+                            <option value="BSc Data Science">BSc Data Science</option>
+                        </select>
+                        <div class="error-message" id="register-course-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-year">Year of Study</label>
+                        <select id="register-year" name="year" required>
+                            <option value="">Select year</option>
+                            <option value="1">Year 1</option>
+                            <option value="2">Year 2</option>
+                            <option value="3">Year 3</option>
+                            <option value="4">Year 4</option>
+                        </select>
+                        <div class="error-message" id="register-year-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-semester">Current Semester</label>
+                        <select id="register-semester" name="semester" required>
+                            <option value="">Select semester</option>
+                            <option value="1">Semester 1</option>
+                            <option value="2">Semester 2</option>
+                        </select>
+                        <div class="error-message" id="register-semester-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-email">Email Address</label>
+                        <input 
+                            type="email" 
+                            id="register-email" 
+                            name="email"
+                            placeholder="your.email@jkuat.ac.ke"
+                        >
+                        <div class="error-message" id="register-email-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input 
+                            type="password" 
+                            id="register-password" 
+                            name="password"
+                            placeholder="At least 8 characters"
+                        >
+                        <div class="input-strength">
+                            <div class="input-strength-bar" id="strengthBar"></div>
+                        </div>
+                        <div class="error-message" id="register-password-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input 
+                            type="password" 
+                            id="register-confirm" 
+                            name="confirm"
+                            placeholder="Re-enter your password"
+                        >
+                        <div class="error-message" id="register-confirm-error"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-lg);">
+                        Create Account
+                    </button>
+
+                    <p style="margin-top: var(--spacing-lg); text-align: center; color: var(--text-secondary);">
+                        Already have an account? <a href="#" class="switch-tab" data-tab="login" style="color: var(--primary); text-decoration: none;">Login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Tab switching
+        document.querySelectorAll('.auth-tab, .switch-tab').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const tabName = btn.getAttribute('data-tab');
+                
+                document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.auth-form').forEach(f => f.style.display = 'none');
+                
+                document.querySelector(`[data-tab="${tabName}"].auth-tab`).classList.add('active');
+                document.querySelector(`[data-form="${tabName}"]`).style.display = 'block';
+            });
+        });
+
+        // Password strength indicator
+        const passwordInput = document.getElementById('register-password');
+        const strengthBar = document.getElementById('strengthBar');
+
+        passwordInput?.addEventListener('input', function() {
+            const strength = FormUtils.validatePasswordStrength(this.value);
+            const colors = ['#ef4444', '#f59e0b', '#f59e0b', '#10b981', '#10b981'];
+            const widths = ['20%', '40%', '60%', '80%', '100%'];
+            
+            strengthBar.style.backgroundColor = colors[strength - 1] || '#ef4444';
+            strengthBar.style.width = widths[strength - 1] || '20%';
+        });
+
+        // Login form submission
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const admission = document.getElementById('login-admission').value.trim();
+            const password = document.getElementById('login-password').value;
+
+            FormUtils.clearFieldError('admission');
+            FormUtils.clearFieldError('password');
+
+            let hasError = false;
+
+            if (!admission) {
+                FormUtils.showFieldError('admission', 'Admission or email is required');
+                hasError = true;
+            } else if (!FormUtils.validateAdmission(admission) && !FormUtils.validateEmail(admission)) {
+                FormUtils.showFieldError('admission', 'Invalid admission number or email');
+                hasError = true;
+            }
+
+            if (!password) {
+                FormUtils.showFieldError('password', 'Password is required');
+                hasError = true;
+            }
+
+            if (!hasError) {
+                const btn = document.querySelector('#loginForm .btn');
+                btn.disabled = true;
+                btn.innerHTML = '<span class="loading-spinner"></span> Signing in...';
+
+                setTimeout(() => {
+                    // Check registered users first (session storage)
+                    const registeredUser = RegisteredUsers.verify(admission, password);
+                    if (registeredUser) {
+                        // Login with registered user
+                        const sessionData = {
+                            id: Math.random().toString(36).substr(2, 9),
+                            username: admission,
+                            loginTime: new Date().toISOString(),
+                            isValid: true
+                        };
+                        localStorage.setItem('jkuat_session', JSON.stringify(sessionData));
+                        localStorage.setItem('jkuat_user', JSON.stringify(registeredUser));
+                        window.location.href = 'app.html';
+                    } else {
+                        // Credentials not found - show error
+                        const btn = document.querySelector('#loginForm .btn');
+                        btn.disabled = false;
+                        btn.innerHTML = 'Sign In';
+                        FormUtils.showFieldError('admission', 'Account not found. Please register first.');
+                    }
+                }, 500);
+            }
+        });
+
+        // Register form submission
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const admission = document.getElementById('register-admission').value.trim();
+            const name = document.getElementById('register-name').value.trim();
+            const course = document.getElementById('register-course').value.trim();
+            const year = document.getElementById('register-year').value.trim();
+            const semester = document.getElementById('register-semester').value.trim();
+            const email = document.getElementById('register-email').value.trim();
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-confirm').value;
+
+            FormUtils.clearFieldError('admission');
+            FormUtils.clearFieldError('name');
+            FormUtils.clearFieldError('course');
+            FormUtils.clearFieldError('year');
+            FormUtils.clearFieldError('semester');
+            FormUtils.clearFieldError('email');
+            FormUtils.clearFieldError('password');
+            FormUtils.clearFieldError('confirm');
+
+            let hasError = false;
+
+            if (!admission) {
+                FormUtils.showFieldError('admission', 'Admission number is required');
+                hasError = true;
+            } else if (!FormUtils.validateAdmission(admission)) {
+                FormUtils.showFieldError('admission', 'Invalid format. Use: SCT###-###/####');
+                hasError = true;
+            }
+
+            if (!name) {
+                FormUtils.showFieldError('name', 'Full name is required');
+                hasError = true;
+            } else if (name.length < 2) {
+                FormUtils.showFieldError('name', 'Name must be at least 2 characters');
+                hasError = true;
+            }
+
+            if (!course) {
+                FormUtils.showFieldError('course', 'Please select a program');
+                hasError = true;
+            }
+
+            if (!year) {
+                FormUtils.showFieldError('year', 'Please select your year of study');
+                hasError = true;
+            }
+
+            if (!semester) {
+                FormUtils.showFieldError('semester', 'Please select your current semester');
+                hasError = true;
+            }
+
+            if (!email) {
+                FormUtils.showFieldError('email', 'Email is required');
+                hasError = true;
+            } else if (!FormUtils.validateEmail(email)) {
+                FormUtils.showFieldError('email', 'Invalid email address');
+                hasError = true;
+            }
+
+            if (!password) {
+                FormUtils.showFieldError('password', 'Password is required');
+                hasError = true;
+            } else if (!FormUtils.validatePassword(password, 8)) {
+                FormUtils.showFieldError('password', 'Password must be at least 8 characters');
+                hasError = true;
+            }
+
+            if (!confirmPassword) {
+                FormUtils.showFieldError('confirm', 'Please confirm your password');
+                hasError = true;
+            } else if (password !== confirmPassword) {
+                FormUtils.showFieldError('confirm', 'Passwords do not match');
+                hasError = true;
+            }
+
+            if (!hasError) {
+                const btn = document.querySelector('#registerForm .btn');
+                btn.disabled = true;
+                btn.innerHTML = '<span class="loading-spinner"></span> Creating account...';
+
+                setTimeout(() => {
+                    // Generate user data
+                    const userData = {
+                        id: 'STU' + Math.random().toString(36).substr(2, 6).toUpperCase(),
+                        name: name,
+                        admission: admission,
+                        email: email,
+                        phone: '+254' + Math.floor(Math.random() * 900000000 + 100000000),
+                        program: course,
+                        course: course,
+                        year: year,
+                        semester: semester,
+                        department: ['School of Computing and IT', 'School of Business', 'School of Engineering', 'School of Science'][Math.floor(Math.random() * 4)],
+                        credits: Math.floor(Math.random() * 40 + 60),
+                        registeredUnits: []
+                    };
+
+                    // Store in temporary session storage
+                    RegisteredUsers.add(admission, password, userData);
+
+                    // Create session and login
+                    const sessionData = {
+                        id: Math.random().toString(36).substr(2, 9),
+                        username: admission,
+                        loginTime: new Date().toISOString(),
+                        isValid: true
+                    };
+                    localStorage.setItem('jkuat_session', JSON.stringify(sessionData));
+                    localStorage.setItem('jkuat_user', JSON.stringify(userData));
+                    
+                    window.location.href = 'app.html';
+                }, 500);
+            }
+        });
+
+        // Auto-focus on load
+        if (!SessionManager.isAuthenticated()) {
+            document.getElementById('login-admission').focus();
+        }
+    </script>
+</body>
+</html>

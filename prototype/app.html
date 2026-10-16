@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JKUAT Student Portal - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <span>🎓</span>
+                <span>JKUAT</span>
+            </div>
+
+            <nav>
+                <div class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <a href="#" class="nav-link active" onclick="switchTab('dashboard')">
+                        <span style="font-size: 1.2rem;">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Academic</div>
+                    <a href="#" class="nav-link" onclick="switchTab('timetable')">
+                        <span style="font-size: 1.2rem;">📅</span>
+                        <span>Timetable</span>
+                    </a>
+                    <a href="#" class="nav-link" onclick="switchTab('results')">
+                        <span style="font-size: 1.2rem;">📈</span>
+                        <span>Results</span>
+                    </a>
+                    <a href="#" class="nav-link" onclick="switchTab('units')">
+                        <span style="font-size: 1.2rem;">📝</span>
+                        <span>Units</span>
+                    </a>
+                    <a href="#" class="nav-link" onclick="switchTab('fees')">
+                        <span style="font-size: 1.2rem;">💳</span>
+                        <span>Fees</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Services</div>
+                    <a href="#" class="nav-link" onclick="switchTab('library')">
+                        <span style="font-size: 1.2rem;">📚</span>
+                        <span>Library</span>
+                    </a>
+                    <a href="#" class="nav-link" onclick="switchTab('profile')">
+                        <span style="font-size: 1.2rem;">👤</span>
+                        <span>Profile</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Communication</div>
+                    <a href="#" class="nav-link" onclick="switchTab('messages')">
+                        <span style="font-size: 1.2rem;">✉️</span>
+                        <span>Messages</span>
+                        <span class="badge" id="messagesBadge" style="display: none;">0</span>
+                    </a>
+                    <a href="#" class="nav-link" onclick="switchTab('notifications')">
+                        <span style="font-size: 1.2rem;">🔔</span>
+                        <span>Notifications</span>
+                        <span class="badge" id="notificationsBadge" style="display: none;">0</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Learning</div>
+                    <a href="#" class="nav-link" onclick="switchTab('elearning')">
+                        <span style="font-size: 1.2rem;">🎓</span>
+                        <span>E-Learning</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Student Info Header -->
+            <div style="background-color: var(--bg-card); border-bottom: 2px solid var(--border-color); padding: var(--spacing-lg) var(--spacing-xl); display: flex; align-items: center; justify-content: space-between; gap: 2rem;">
+                <div style="flex: 1;">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary); margin-bottom: 0.5rem;" id="headerName">Mary Njoroge</div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem;">
+                        <div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.25rem;">Program</div>
+                            <div style="font-weight: 600;" id="headerCourse">BSc Computer Science</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.25rem;">Year</div>
+                            <div style="font-weight: 600;" id="headerYear">Year 3</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.25rem;">Semester</div>
+                            <div style="font-weight: 600;" id="headerSemester">Semester 2</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="sidebar-toggle" onclick="toggleSidebarRetract()" style="padding: 0.75rem; border-radius: 0.5rem; background-color: var(--bg-hover); border: 1px solid var(--border-color); color: var(--primary); font-size: 1.2rem;">☰</button>
+            </div>
+
+            <!-- Header -->
+            <header class="top-header">
+                <button class="sidebar-toggle" onclick="openSidebar()">☰</button>
+                <div style="flex: 1; padding-left: 1rem;">
+                    <span id="pageTitle" style="font-size: 1.25rem; font-weight: 600;">Dashboard</span>
+                </div>
+                <div class="header-actions">
+                    <button class="header-action" title="Messages" onclick="switchTab('messages')">
+                        ✉️
+                        <span class="badge" id="msgCount" style="display: none;">0</span>
+                    </button>
+                    <button class="header-action" title="Notifications" onclick="switchTab('notifications')">
+                        🔔
+                        <span class="badge" id="notCount" style="display: none;">0</span>
+                    </button>
+                    <button class="header-action" title="Profile" onclick="switchTab('profile')">👤</button>
+                    <button class="header-action" data-action="logout" title="Logout">🚪</button>
+                </div>
+            </header>
+
+            <!-- Content Wrapper -->
+            <div class="content-wrapper">
+                <!-- Dashboard Tab -->
+                <div id="dashboard-tab" class="tab-content active">
+                    <div class="grid grid-3" style="margin-bottom: 2rem;">
+                        <div class="widget">
+                            <div class="widget-icon">🎓</div>
+                            <div class="widget-value" id="creditsValue">105</div>
+                            <div class="widget-label">Credits Earned</div>
+                        </div>
+                        <div class="widget">
+                            <div class="widget-icon">💳</div>
+                            <div class="widget-value" id="balanceValue">KES 20K</div>
+                            <div class="widget-label">Fee Balance</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Today's Classes</h3>
+                        </div>
+                        <div id="todayClasses" class="card-body"></div>
+                    </div>
+
+                    <div class="card" style="margin-top: 2rem;">
+                        <div class="card-header">
+                            <h3 class="card-title">Quick Stats</h3>
+                        </div>
+                        <div class="grid grid-2">
+                            <div>
+                                <div style="font-size: 0.9rem; color: var(--text-secondary);">Registered Units</div>
+                                <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary);" id="unitsCount">5</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.9rem; color: var(--text-secondary);">Messages</div>
+                                <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary);" id="msgCount2">3</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.9rem; color: var(--text-secondary);">Unread Alerts</div>
+                                <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary);" id="notCount2">2</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.9rem; color: var(--text-secondary);">Program Year</div>
+                                <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary);" id="yearValue">3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timetable Tab -->
+                <div id="timetable-tab" class="tab-content">
+                    <div style="display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                        <button class="btn btn-primary" data-day="Monday" onclick="loadTimetableDay(this)">Monday</button>
+                        <button class="btn btn-secondary" data-day="Tuesday" onclick="loadTimetableDay(this)">Tuesday</button>
+                        <button class="btn btn-secondary" data-day="Wednesday" onclick="loadTimetableDay(this)">Wednesday</button>
+                        <button class="btn btn-secondary" data-day="Thursday" onclick="loadTimetableDay(this)">Thursday</button>
+                        <button class="btn btn-secondary" data-day="Friday" onclick="loadTimetableDay(this)">Friday</button>
+                    </div>
+                    <div id="timetableContent" class="grid grid-2"></div>
+                </div>
+
+                <!-- Results Tab -->
+                <div id="results-tab" class="tab-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Academic Results</h3>
+                        </div>
+                        <div id="resultsContent"></div>
+                    </div>
+                </div>
+
+                <!-- Units Tab -->
+                <div id="units-tab" class="tab-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Unit Registration</h3>
+                        </div>
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 50px;"><input type="checkbox" id="selectAll" onchange="selectAllUnits(this)"></th>
+                                        <th>Code</th>
+                                        <th>Course Name</th>
+                                        <th>Credits</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="unitsTable"></tbody>
+                            </table>
+                        </div>
+                        <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                            <button class="btn btn-primary" onclick="submitUnits()">Register Selected</button>
+                            <button class="btn btn-secondary" onclick="resetUnits()">Reset</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fees Tab -->
+                <div id="fees-tab" class="tab-content">
+                    <div class="grid grid-3" style="margin-bottom: 2rem;">
+                        <div class="card" style="text-align: center;">
+                            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Total Fee</div>
+                            <div style="font-size: 1.8rem; font-weight: bold; color: var(--primary);">KES 60,000</div>
+                        </div>
+                        <div class="card" style="text-align: center;">
+                            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Amount Paid</div>
+                            <div style="font-size: 1.8rem; font-weight: bold; color: var(--success);">KES 40,000</div>
+                        </div>
+                        <div class="card" style="text-align: center;">
+                            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Balance Due</div>
+                            <div style="font-size: 1.8rem; font-weight: bold; color: var(--danger);">KES 20,000</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Payment History</h3>
+                        </div>
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Method</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="feesTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Library Tab -->
+                <div id="library-tab" class="tab-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Borrowed Books</h3>
+                        </div>
+                        <div id="booksContent" class="grid grid-2"></div>
+                    </div>
+                    <div class="card" style="margin-top: 2rem;">
+                        <div class="card-header">
+                            <h3 class="card-title">E-Resources</h3>
+                        </div>
+                        <div id="resourcesContent" class="grid grid-2"></div>
+                    </div>
+                </div>
+
+                <!-- Profile Tab -->
+                <div id="profile-tab" class="tab-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Student Information</h3>
+                        </div>
+                        <div id="profileContent"></div>
+                    </div>
+                </div>
+
+                <!-- Messages Tab -->
+                <div id="messages-tab" class="tab-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Messages</h3>
+                        </div>
+                        <div id="messagesContent"></div>
+                    </div>
+                </div>
+
+                <!-- Notifications Tab -->
+                <div id="notifications-tab" class="tab-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Notifications</h3>
+                        </div>
+                        <div id="notificationsContent"></div>
+                    </div>
+                </div>
+
+                <!-- E-Learning Tab -->
+                <div id="elearning-tab" class="tab-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">My Courses</h3>
+                        </div>
+                        <div id="coursesContent" class="grid grid-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        checkSession();
+
+        let currentTab = 'dashboard';
+        let currentUser = SessionManager.getUser();
+
+        // Initialize dashboard
+        function initDashboard() {
+            updateUserInfo();
+            loadDashboardData();
+            updateBadges();
+            loadTimetableDay(document.querySelector('[data-day="Monday"]'));
+        }
+
+        function updateUserInfo() {
+            document.getElementById('headerName').textContent = currentUser.name;
+            document.getElementById('headerCourse').textContent = currentUser.course || currentUser.program;
+            document.getElementById('headerYear').textContent = 'Year ' + currentUser.year;
+            document.getElementById('headerSemester').textContent = 'Semester ' + currentUser.semester;
+            document.getElementById('creditsValue').textContent = currentUser.credits;
+            document.getElementById('balanceValue').textContent = 'KES 20,000';
+        }
+
+        function loadDashboardData() {
+            // Today's classes
+            const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+            const today = days[new Date().getDay() - 1] || 'Monday';
+            const classes = (MockData.timetable[today] || []).slice(0, 3);
+
+            if (classes.length === 0) {
+                document.getElementById('todayClasses').innerHTML = '<p style="color: var(--text-secondary);">No classes today</p>';
+            } else {
+                document.getElementById('todayClasses').innerHTML = classes.map(cls => `
+                    <div style="padding: 1rem; background-color: rgba(0, 212, 255, 0.05); border-radius: 0.5rem; border-left: 3px solid var(--primary);">
+                        <div style="font-weight: 600;">${cls.course}</div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                            <span>${cls.time}</span> • <span>${cls.room}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            document.getElementById('unitsCount').textContent = currentUser.registeredUnits?.length || '0';
+            document.getElementById('msgCount2').textContent = MockData.messages.length;
+            document.getElementById('notCount2').textContent = MockData.notifications.filter(n => !n.read).length;
+        }
+
+        function loadTimetableDay(btn) {
+            document.querySelectorAll('[data-day]').forEach(b => b.classList.remove('btn-primary'));
+            document.querySelectorAll('[data-day]').forEach(b => b.classList.add('btn-secondary'));
+            btn?.classList.add('btn-primary');
+            btn?.classList.remove('btn-secondary');
+
+            const day = btn?.getAttribute('data-day') || 'Monday';
+            const classes = MockData.timetable[day] || [];
+
+            document.getElementById('timetableContent').innerHTML = classes.map(cls => `
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div>
+                            <div style="font-size: 0.9rem; color: var(--primary); font-weight: 600;">${cls.time}</div>
+                            <div style="font-size: 1.1rem; font-weight: 600; margin: 0.5rem 0;">${cls.course}</div>
+                            <div style="font-size: 0.9rem; color: var(--text-secondary);">
+                                <div>📍 ${cls.room}</div>
+                                <div>👨‍🏫 ${cls.lecturer}</div>
+                                <div style="margin-top: 0.5rem;">
+                                    <span class="badge-status badge-info">${cls.code}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function switchTab(tabName) {
+            currentTab = tabName;
+            
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabName + '-tab').classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            document.querySelector(`[onclick="switchTab('${tabName}')"]`)?.classList.add('active');
+
+            const titles = {
+                dashboard: 'Dashboard',
+                timetable: 'Timetable',
+                results: 'Results',
+                units: 'Units Registration',
+                fees: 'Fees',
+                library: 'Library',
+                profile: 'Profile',
+                messages: 'Messages',
+                notifications: 'Notifications',
+                elearning: 'E-Learning'
+            };
+            document.getElementById('pageTitle').textContent = titles[tabName];
+
+            if (tabName === 'results') loadResults();
+            if (tabName === 'units') loadUnits();
+            if (tabName === 'fees') loadFees();
+            if (tabName === 'library') loadLibrary();
+            if (tabName === 'profile') loadProfile();
+            if (tabName === 'messages') loadMessages();
+            if (tabName === 'notifications') loadNotifications();
+            if (tabName === 'elearning') loadCourses();
+
+            closeSidebar();
+        }
+
+        function loadResults() {
+            const result = MockData.results[0];
+            document.getElementById('resultsContent').innerHTML = `
+                <div style="margin-bottom: 1.5rem;">
+                    <h4>${result.semester}</h4>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
+                        <div style="text-align: center; padding: 1rem; background-color: rgba(0, 212, 255, 0.05); border-radius: 0.5rem;">
+                            <div style="font-size: 0.9rem; color: var(--text-secondary);">GPA</div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">${result.gpa}</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background-color: rgba(0, 212, 255, 0.05); border-radius: 0.5rem;">
+                            <div style="font-size: 0.9rem; color: var(--text-secondary);">Credits</div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">${result.credits}</div>
+                        </div>
+                        <div style="text-align: center; padding: 1rem; background-color: rgba(0, 212, 255, 0.05); border-radius: 0.5rem;">
+                            <div style="font-size: 0.9rem; color: var(--text-secondary);">Units</div>
+                            <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">${result.units.length}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Course</th>
+                                <th>Grade</th>
+                                <th>Points</th>
+                                <th>Credits</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${result.units.map(unit => `
+                                <tr>
+                                    <td>${unit.code}</td>
+                                    <td>${unit.name}</td>
+                                    <td><span class="badge-status" style="background-color: rgba(16, 185, 129, 0.1); color: ${Formatters.getGradeColor(unit.grade)};">${unit.grade}</span></td>
+                                    <td>${unit.points}</td>
+                                    <td>${unit.credits}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        function loadUnits() {
+            const units = MockData.availableUnits;
+            const registered = currentUser.registeredUnits || [];
+            
+            document.getElementById('unitsTable').innerHTML = units.map(unit => `
+                <tr>
+                    <td><input type="checkbox" class="unit-checkbox" value="${unit.code}" ${registered.includes(unit.code) ? 'checked' : ''}></td>
+                    <td>${unit.code}</td>
+                    <td>${unit.name}</td>
+                    <td>${unit.credits}</td>
+                    <td><span class="badge-status badge-success">Available</span></td>
+                </tr>
+            `).join('');
+        }
+
+        function loadFees() {
+            const fees = MockData.fees;
+            document.getElementById('feesTable').innerHTML = fees.payments.map(payment => `
+                <tr>
+                    <td>${Formatters.date(payment.date)}</td>
+                    <td>${Formatters.currency(payment.amount)}</td>
+                    <td>${payment.method}</td>
+                    <td><span class="badge-status badge-success">${payment.status}</span></td>
+                </tr>
+            `).join('');
+        }
+
+        function loadLibrary() {
+            const books = MockData.libraryBooks;
+            const resources = MockData.eResources;
+
+            document.getElementById('booksContent').innerHTML = books.map(book => `
+                <div class="card">
+                    <div style="margin-bottom: 1rem;">
+                        <div style="font-weight: 600;">${book.title}</div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary);">by ${book.author}</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">ISBN: ${book.isbn}</div>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="badge-status" style="background-color: rgba(${book.status === 'Overdue' ? '239, 68, 68' : '16, 185, 129'}, 0.1); color: ${book.status === 'Overdue' ? 'var(--danger)' : 'var(--success)'};">${book.status}</span>
+                        <span style="font-size: 0.85rem; color: var(--text-secondary);">Due: ${Formatters.date(book.dueDate)}</span>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('resourcesContent').innerHTML = resources.map(resource => `
+                <div class="card">
+                    <div style="margin-bottom: 1rem;">
+                        <div style="font-weight: 600;">${resource.title}</div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary);">${resource.type}</div>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; font-size: 0.9rem;">Access Resource</button>
+                </div>
+            `).join('');
+        }
+
+        function loadProfile() {
+            document.getElementById('profileContent').innerHTML = `
+                <div class="grid grid-2">
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Name</label>
+                        <div style="padding: 0.75rem; background-color: var(--bg-hover); border-radius: 0.5rem;">${currentUser.name}</div>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Admission</label>
+                        <div style="padding: 0.75rem; background-color: var(--bg-hover); border-radius: 0.5rem;">${currentUser.admission}</div>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Email</label>
+                        <div style="padding: 0.75rem; background-color: var(--bg-hover); border-radius: 0.5rem;">${currentUser.email}</div>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Phone</label>
+                        <div style="padding: 0.75rem; background-color: var(--bg-hover); border-radius: 0.5rem;">${currentUser.phone}</div>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Program</label>
+                        <div style="padding: 0.75rem; background-color: var(--bg-hover); border-radius: 0.5rem;">${currentUser.program}</div>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Department</label>
+                        <div style="padding: 0.75rem; background-color: var(--bg-hover); border-radius: 0.5rem;">${currentUser.department}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function loadMessages() {
+            const messages = MockData.messages;
+            document.getElementById('messagesContent').innerHTML = messages.map(msg => `
+                <div style="padding: 1rem; border-bottom: 1px solid var(--border-color); ${!msg.read ? 'background-color: rgba(0, 212, 255, 0.03);' : ''}">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <div>
+                            <div style="font-weight: 600;">${msg.sender}</div>
+                            <div style="font-size: 0.95rem; margin-top: 0.25rem;">${msg.subject}</div>
+                            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.5rem;">${msg.preview}</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 0.85rem; color: var(--text-secondary);">${Formatters.date(msg.date)}</div>
+                            ${!msg.read ? '<span class="badge-status badge-info" style="margin-top: 0.25rem;">New</span>' : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadNotifications() {
+            const notifications = MockData.notifications;
+            document.getElementById('notificationsContent').innerHTML = notifications.map(notif => `
+                <div style="padding: 1rem; border-left: 3px solid var(--primary); background-color: rgba(0, 212, 255, 0.03); margin-bottom: 1rem; border-radius: 0.5rem;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div>
+                            <div style="font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
+                                ${notif.title}
+                                <span class="badge-status badge-${notif.type === 'success' ? 'success' : notif.type === 'warning' ? 'warning' : 'info'}" style="font-size: 0.75rem;">${notif.type}</span>
+                            </div>
+                            <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">${notif.message}</div>
+                        </div>
+                        <div style="font-size: 0.85rem; color: var(--text-secondary);">${Formatters.date(notif.date)}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function loadCourses() {
+            const courses = MockData.courses;
+            document.getElementById('coursesContent').innerHTML = courses.map(course => `
+                <div class="card">
+                    <div style="margin-bottom: 1rem;">
+                        <div style="font-size: 0.9rem; color: var(--primary); font-weight: 600;">${course.code}</div>
+                        <div style="font-weight: 600; margin: 0.5rem 0;">${course.title}</div>
+                        <div style="font-size: 0.9rem; color: var(--text-secondary);">${course.instructor}</div>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Progress: ${course.progress}%</div>
+                        <div style="height: 6px; background-color: var(--border-color); border-radius: 3px; overflow: hidden;">
+                            <div style="height: 100%; width: ${course.progress}%; background-color: var(--primary); transition: width 0.3s;"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; font-size: 0.9rem;">Open Course</button>
+                </div>
+            `).join('');
+        }
+
+        function submitUnits() {
+            const checked = Array.from(document.querySelectorAll('.unit-checkbox:checked')).map(el => el.value);
+            if (checked.length === 0) {
+                alert('Please select at least one unit');
+                return;
+            }
+            currentUser.registeredUnits = checked;
+            localStorage.setItem(SessionManager.USER_KEY, JSON.stringify(currentUser));
+            alert(`Registered for ${checked.length} units successfully!`);
+            document.getElementById('unitsCount').textContent = checked.length;
+        }
+
+        function resetUnits() {
+            document.querySelectorAll('.unit-checkbox').forEach(el => el.checked = false);
+        }
+
+        function selectAllUnits(checkbox) {
+            document.querySelectorAll('.unit-checkbox').forEach(el => el.checked = checkbox.checked);
+        }
+
+        function updateBadges() {
+            const unreadMessages = MockData.messages.filter(m => !m.read).length;
+            const unreadNotifications = MockData.notifications.filter(n => !n.read).length;
+            
+            if (unreadMessages > 0) {
+                document.getElementById('msgCount').textContent = unreadMessages;
+                document.getElementById('msgCount').style.display = 'inline-block';
+            }
+            if (unreadNotifications > 0) {
+                document.getElementById('notCount').textContent = unreadNotifications;
+                document.getElementById('notCount').style.display = 'inline-block';
+            }
+        }
+
+        function toggleSidebarRetract() {
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+            
+            if (sidebar.style.transform === 'translateX(-100%)') {
+                // Show sidebar
+                sidebar.style.transform = 'translateX(0)';
+                sidebar.style.zIndex = '1000';
+                if (window.innerWidth < 768) {
+                    document.body.style.overflow = 'hidden';
+                }
+            } else {
+                // Hide sidebar
+                if (window.innerWidth < 768) {
+                    sidebar.style.transform = 'translateX(-100%)';
+                    document.body.style.overflow = 'auto';
+                } else {
+                    // On desktop, just collapse width
+                    sidebar.style.width = '80px';
+                    sidebar.style.paddingLeft = '0.5rem';
+                    document.querySelectorAll('.sidebar-label').forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('.sidebar-icon').forEach(el => el.style.marginRight = '0');
+                    mainContent.style.marginLeft = '80px';
+                }
+            }
+        }
+
+        // Initialize on load
+        initDashboard();
+    </script>
+</body>
+</html>
